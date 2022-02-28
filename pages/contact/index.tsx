@@ -2,30 +2,47 @@ import { NextPage } from 'next';
 import React from 'react';
 import styles from '@styles/components/Components.module.css';
 import SeoContent from '@components/SeoContent';
-import HubspotForm from 'react-hubspot-form';
+import Router from 'next/router';
+import Button from '@components/Button';
 
+import { useForm } from 'react-hook-form';
 
-declare global {
-  interface Window {
-    Formrun?: any;
-    grecaptcha?: any;
-  }
-}
+const Contact: NextPage = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    mode: 'onChange',
+  });
 
-const Index: NextPage = () => {
+  const submit = (values) => {
+    fetch('/api/contact', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(values),
+    }).then((res) => {
+      if (res.status === 200) {
+        Router.push('/contact/thanks');
+      }
+    });
+  };
 
   return (
     <>
       <SeoContent
         pageTitle="お問い合わせ"
-        pageDescription="遠隔接客サービスRURAへのお問い合わせページです。"
+        pageDescription="株式会社LTDへのお問い合わせページです。"
       />
       <div className={styles.contactPageFlex}>
         <div className={styles.contactPageFlexLeft}>
           <div className={styles.contactPageFlexInner}>
             <h1 className={styles.headline}>お問い合わせ</h1>
             <p>
-              RURAにご関心いただきありがとうございます。
+              弊社にご関心いただきありがとうございます。
               必須項目を入力の上、フォームの送信をお願いします。
               担当者が内容を確認の上、折り返し連絡させていただきます。
             </p>
@@ -34,11 +51,75 @@ const Index: NextPage = () => {
         <div className={styles.contactPageFlexRight}>
           <div className={styles.contactPageFlexInner}>
             <div className={styles.contactContent}>
-              <HubspotForm
-                portalId="21136941"
-                formId="694f4564-50b6-45dc-ba3c-c540fd9af18b"
-                loading={<div>Loading...</div>}
-              />
+              <form onSubmit={handleSubmit(submit)}>
+                <div className={styles.formContentBox}>
+                  <label htmlFor="name">
+                    お名前<span className={styles.required}>必須</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    {...register('name', { required: true, maxLength: 80 })}
+                  />
+                  {errors.name?.type === 'required' && (
+                    <p className={styles.errorText}>この質問は必須項目です</p>
+                  )}
+                  {errors.name?.type === 'maxLength' && (
+                    <p className={styles.errorText}>80文字以内で記入してください</p>
+                  )}
+                </div>
+                <div className={styles.formContentBox}>
+                  <label htmlFor="email">
+                    メールアドレス<span className={styles.required}>必須</span>
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    {...register('email', {
+                      required: true,
+                      pattern: /^\S+@\S+$/i,
+                    })}
+                  />
+                  {errors.email?.type === 'required' && (
+                    <p className={styles.errorText}>この質問は必須項目です</p>
+                  )}
+                  {errors.email?.type === 'pattern' && (
+                    <p className={styles.errorText}>メールアドレスを入力してください</p>
+                  )}
+                </div>
+                <div className={styles.formContentBox}>
+                  <label htmlFor="tel">
+                    電話番号<span className={styles.required}>必須</span>
+                  </label>
+                  <input
+                    type="tel"
+                    name="tel"
+                    {...register('tel', {
+                      required: true,
+                      maxLength: 14,
+                    })}
+                  />
+                  {errors.tel?.type === 'required' && (
+                    <p className={styles.errorText}>この質問は必須項目です</p>
+                  )}
+                  {errors.tel?.type === 'maxLength' && (
+                    <p className={styles.errorText}>電話番号を記入してください</p>
+                  )}
+                </div>
+
+                <div className={styles.formContentBox}>
+                  <label htmlFor="message">
+                    メッセージ<span className={styles.required}>必須</span>
+                  </label>
+                  <textarea name="message" {...register('message', { required: true })}></textarea>
+                  {errors.message?.type === 'required' && (
+                    <p className={styles.errorText}>この質問は必須項目です</p>
+                  )}
+                </div>
+                <Button color="primary" size="large" types="submit">
+                  送信する
+                </Button>
+              </form>
             </div>
           </div>
         </div>
@@ -47,4 +128,4 @@ const Index: NextPage = () => {
   );
 };
 
-export default Index;
+export default Contact;

@@ -5,27 +5,24 @@ import TopButton from '@components/TopButton';
 import DrawerMenu from '@components/DrawerMenu';
 import { Link as Scroll } from 'react-scroll';
 import { useRouter } from 'next/router';
-import React, { useCallback, useState, useEffect } from "react"
+import React, { useCallback, useState, useEffect } from 'react';
 import Image from 'next/image';
 
 export const Header: React.FC = () => {
   const router = useRouter();
 
   const navItem = [
-    { url: 'case', name: '導入事例' },
-    { url: 'service', name: 'サービス' },
-    { url: 'scene', name: 'シーン' },
-    { url: 'design', name: 'デザイン' },
-    { url: 'features', name: '機能' },
-    { url: 'news', name: '新着情報' },
-    { url: 'handbook', name: 'ハンドブック' },
-    { url: 'faq', name: 'FAQ' },
+    { url: 'about', name: '当サービスについて' },
+    { url: 'features', name: '特徴・機能' },
+    { url: 'service', name: '利用いただけるサービス' },
+    { url: 'howto', name: '利用方法' },
+    { url: 'booth', name: '設置場所' },
   ];
-const [isHeaderShown, setIsHeaderClass] = useState(true);
- const [lastPosition, setLastPosition] = useState(0);
- const headerHeight = 0;
+  const [isHeaderShown, setIsHeaderClass] = useState(true);
+  const [lastPosition, setLastPosition] = useState(0);
+  const headerHeight = 0;
 
- const scrollEvent = useCallback(() => {
+  const scrollEvent = useCallback(() => {
     const offset = window.pageYOffset;
 
     if (offset > headerHeight) {
@@ -33,7 +30,6 @@ const [isHeaderShown, setIsHeaderClass] = useState(true);
     } else {
       setIsHeaderClass(true);
     }
-
 
     setLastPosition(offset);
   }, [lastPosition]);
@@ -46,73 +42,59 @@ const [isHeaderShown, setIsHeaderClass] = useState(true);
     };
   }, [scrollEvent]);
 
-
-
-
   return (
     <>
-      <header className={(
-        isHeaderShown == true ? styles.header : `${styles.headerFixed} ${styles.header}`
-      )}>
-        <div className={styles.logo}>
-          <Link href="/">
-            <a>
-              <div className={styles.logoImg}>
-                <Image
-                  src="/images/rura_logo_blue.svg"
-                  alt="遠隔接客サービスRURA"
-                  layout={'fill'}
-                  objectFit={'contain'}
-                />
-              </div>
-              <p className={styles.logoText}>遠隔接客サービス</p>
-            </a>
-          </Link>
-        </div>
-        <div className={styles.headerRight}>
-          <nav className={styles.header_nav}>
-            <ul>
-              <li>
-                <Link href={'/'}>
-                  <a>ホーム</a>
-                </Link>
-              </li>
+      <header
+        className={isHeaderShown == true ? styles.header : `${styles.headerFixed} ${styles.header}`}
+      >
+        {router.pathname != '/' && (
+          <div className={styles.logo}>
+            <Link href="/">
+              <a>
+                <div className={styles.logoImg}>
+                  <Image
+                    src="/images/cocodeskOssLogo.svg"
+                    alt="遠隔接客サービスRURA"
+                    layout={'fill'}
+                    objectFit={'contain'}
+                  />
+                </div>
+              </a>
+            </Link>
+          </div>
+        )}
+        <nav className={styles.header_nav}>
+          <ul>
+            {router.pathname == '/' ? (
+              <>
+                {navItem.map((navContent) => (
+                  <li key={navContent.name}>
+                    <Scroll to={navContent.url} smooth={true} duration={600}>
+                      {navContent.name}
+                    </Scroll>
+                  </li>
+                ))}
+              </>
+            ) : (
+              <>
+                {navItem.map((navContent) => (
+                  <li key={navContent.name}>
+                    <Link href="/" as={`/#${navContent.url}`}>
+                      {navContent.name}
+                    </Link>
+                  </li>
+                ))}
+              </>
+            )}
+          </ul>
+        </nav>
 
-              {router.pathname == '/' ? (
-                <>
-                  {navItem.map((navContent) => (
-                    <li key={navContent.name}>
-                      <Scroll to={navContent.url} smooth={true} duration={600}>
-                        {navContent.name}
-                      </Scroll>
-                    </li>
-                  ))}
-                </>
-              ) : (
-                <>
-                  {navItem.map((navContent) => (
-                    <li key={navContent.name}>
-                      <Link href="/" as={`/#${navContent.url}`}>
-                        {navContent.name}
-                      </Link>
-                    </li>
-                  ))}
-                </>
-              )}
-            </ul>
-          </nav>
-
-          <Button bgColor="primary" size={(
-        isHeaderShown == true ? 'normal' : 'headerSmall'
-      )} types="link" href="/download" id="headerD">
-            資料ダウンロード
-          </Button>
-          <Button bgColor="secondary" size={(
-        isHeaderShown == true ? 'normal' : 'headerSmall'
-      )} types="link" href="/contact" id="headerC">
-            お問い合わせ
-          </Button>
-        </div>
+        <Button color="primary" size="small" linkTo="#">
+          ご予約はこちら
+        </Button>
+        <Button fill="outline" color="primary" size="small" linkTo="/contact" as="/contact">
+          お問い合わせ
+        </Button>
         <DrawerMenu />
       </header>
       <TopButton />

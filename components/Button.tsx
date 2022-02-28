@@ -1,54 +1,122 @@
 import Link from 'next/link';
-import styles from '@styles/components/Parts.module.css';
-import { IoDocumentTextOutline, IoMailOutline } from 'react-icons/io5';
-interface Props {
+import styles from '@styles/components/Button.module.css';
+
+interface props {
   children?: string;
-  href?: string;
+  linkTo?: string;
   types?: string;
-  type?: string;
-  bgColor?: string;
+  color?: string;
+  fill?: string;
+  expand?: string;
   size?: string;
-  icon?: string;
   errorText?: string;
   submittingText?: string;
   as?: string;
   target?: string;
-  id?: string;
   classNames?: string;
 }
 
 const Button = ({
   children,
-  href,
+  linkTo,
   types,
-  bgColor,
+  color,
   size,
-  id,
-  icon,
+  fill,
+  expand,
   classNames,
   errorText,
   as,
   submittingText,
-}: Props) => {
+}: props) => {
   {
-    if (size == 'normal') {
-      bgColor == 'normal' && (classNames = styles.btn);
-      bgColor == 'primary' && (classNames = `${styles.btn} ${styles.primary}`);
-      bgColor == 'secondary' && (classNames = `${styles.btn} ${styles.secondary}`);
+    if (color == 'primary') {
+      if (size == 'small') {
+        if (expand == 'block') {
+          classNames = `${styles.btn} ${styles.primary} ${styles.small} ${styles.block}`;
+          if (fill == 'outline') {
+            classNames = `${styles.btn} ${styles.primary} ${styles.small} ${styles.outline} ${styles.block}`;
+          }
+        } else {
+          classNames = `${styles.btn} ${styles.primary} ${styles.small}`;
+          if (fill == 'outline') {
+            classNames = `${styles.btn} ${styles.primary} ${styles.small} ${styles.outline}`;
+          }
+        }
+      }
+      if (size == 'default') {
+        if (expand == 'block') {
+          classNames = `${styles.btn} ${styles.primary} ${styles.block}`;
+          if (fill == 'outline') {
+            classNames = `${styles.btn} ${styles.primary} ${styles.outline} ${styles.block}`;
+          }
+        } else {
+          classNames = `${styles.btn} ${styles.primary}`;
+          if (fill == 'outline') {
+            classNames = `${styles.btn} ${styles.primary} ${styles.outline}`;
+          }
+        }
+      }
+      if (size == 'large') {
+        if (expand == 'block') {
+          classNames = `${styles.btn} ${styles.primary}  ${styles.large} ${styles.block}`;
+          if (fill == 'outline') {
+            classNames = `${styles.btn} ${styles.primary} ${styles.outline} ${styles.large} ${styles.block}`;
+          }
+        } else {
+          classNames = `${styles.btn} ${styles.primary}  ${styles.large}`;
+          if (fill == 'outline') {
+            classNames = `${styles.btn} ${styles.primary} ${styles.outline} ${styles.large}`;
+          }
+        }
+      }
     }
-    if (size == 'large') {
-      bgColor == 'primary' && (classNames = `${styles.btn} ${styles.primary}  ${styles.large}`);
-      bgColor == 'secondary' && (classNames = `${styles.btn} ${styles.secondary} ${styles.large}`);
-    }
-    if (size == 'headerSmall') {
-      bgColor == 'primary' && (classNames = `${styles.btn} ${styles.primary}  ${styles.headerSmall}`);
-      bgColor == 'secondary' && (classNames = `${styles.btn} ${styles.secondary} ${styles.headerSmall}`);
+    if (color == 'white') {
+      if (size == 'small') {
+        if (expand == 'block') {
+          classNames = `${styles.btn} ${styles.white} ${styles.small} ${styles.block}`;
+          if (fill == 'outline') {
+            classNames = `${styles.btn} ${styles.white} ${styles.small} ${styles.outline} ${styles.block}`;
+          }
+        } else {
+          classNames = `${styles.btn} ${styles.white} ${styles.small}`;
+          if (fill == 'outline') {
+            classNames = `${styles.btn} ${styles.white} ${styles.small} ${styles.outline}`;
+          }
+        }
+      }
+      if (size == 'default') {
+        if (expand == 'block') {
+          classNames = `${styles.btn} ${styles.white} ${styles.block}`;
+          if (fill == 'outline') {
+            classNames = `${styles.btn} ${styles.white} ${styles.outline} ${styles.block}`;
+          }
+        } else {
+          classNames = `${styles.btn} ${styles.white}`;
+          if (fill == 'outline') {
+            classNames = `${styles.btn} ${styles.white} ${styles.outline}`;
+          }
+        }
+      }
+      if (size == 'large') {
+        if (expand == 'block') {
+          classNames = `${styles.btn} ${styles.white}  ${styles.large} ${styles.block}`;
+          if (fill == 'outline') {
+            classNames = `${styles.btn} ${styles.white} ${styles.outline} ${styles.large} ${styles.block}`;
+          }
+        } else {
+          classNames = `${styles.btn} ${styles.white}  ${styles.large}`;
+          if (fill == 'outline') {
+            classNames = `${styles.btn} ${styles.white} ${styles.outline} ${styles.large}`;
+          }
+        }
+      }
     }
   }
 
   return (
     <>
-      {types == 'submit' ? (
+      {types == 'button' ? (
         <button
           type="submit"
           className={classNames}
@@ -58,20 +126,8 @@ const Button = ({
           {children}
         </button>
       ) : (
-        <Link href={href} as={as}>
-          <a className={classNames} id={id}>
-            {(() => {
-              if (icon) {
-                if (icon == 'download') {
-                  return <IoDocumentTextOutline />;
-                }
-                if (icon == 'contact') {
-                  return <IoMailOutline />;
-                }
-              }
-            })()}
-            {children}
-          </a>
+        <Link href={`${linkTo}`} as={as}>
+          <a className={classNames}>{children}</a>
         </Link>
       )}
     </>

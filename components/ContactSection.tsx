@@ -7,7 +7,7 @@ interface Props {
   downloadId?: string;
   contactId?: string;
 }
-const ContactSection: React.FC<Props> = ({ ids, downloadId, contactId }: Props) => {
+const ContactSection: React.FC<Props> = ({ ids }: Props) => {
   return (
     <section id={ids && ids} className={styles.contactSection}>
       <div className={styles.contactSectionBg}>
@@ -35,24 +35,10 @@ const ContactSection: React.FC<Props> = ({ ids, downloadId, contactId }: Props) 
               </div>
             </div>
             <div className={styles.contactSectionLogoBtn}>
-              <Button
-                bgColor="primary"
-                size="large"
-                types="link"
-                href="/download/"
-                icon="download"
-                id={downloadId}
-              >
+              <Button color="primary" size="large" linkTo="/download/">
                 資料ダウンロード
               </Button>
-              <Button
-                bgColor="secondary"
-                size="large"
-                types="link"
-                href="/contact"
-                icon="contact"
-                id={contactId}
-              >
+              <Button color="secondary" size="large" linkTo="/contact">
                 お問い合わせ
               </Button>
             </div>

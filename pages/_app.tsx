@@ -4,13 +4,9 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { Footer, Header } from '@components';
 import '../styles/globals.scss';
 
-
 const queryClient = new QueryClient();
 
 export default function MyApp({ Component, pageProps }: AppProps) {
-
-
-
   return (
     <>
       <Head>
@@ -23,7 +19,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <Header />
         <QueryClientProvider client={queryClient}>
           <div className="main">
-          <Component {...pageProps} />
+            <Component {...pageProps} />
           </div>
         </QueryClientProvider>
       </div>

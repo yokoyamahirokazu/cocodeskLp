@@ -1,77 +1,36 @@
 import { NextPage } from 'next';
-import {
-  Hero,
-  Case,
-  Recommend,
-  Faqs,
-  Handbook,
-  Service,
-  Scene,
-  Design,
-  Features,
-  Newsindex,
-} from '@components';
+import { Hero, Service, Booth } from '@components';
 
 import ContactSection from '@components/ContactSection';
 import SeoContent from '@components/SeoContent';
-import { IBlog, ICategory, IPopularArticles } from '@/types';
 import { client } from 'framework/client';
-import { config } from '@site.config';
 
-interface caseItems {
-  id?: string;
-  caseName?: string;
-  caseType?: string;
-  caseBody?: string;
-  width: number;
-  height: number;
-  caseImg?: {
-    url: string;
-  };
-  caseLogo1?: {
-    url: string;
-  };
-  caseLogo2?: {
-    url: string;
-  };
-}
-interface recommendItems {
-  id?: string;
-  company?: string;
-  name?: string;
-  body?: string;
-  img?: {
-    url: string;
-  };
-}
-interface faqItems {
-  id?: string;
-  question?: string;
-  answer?: string;
-}
-interface handbookItems {
+interface serviceItems {
   id?: string;
   title?: string;
-  smallBanner?: string;
-  img?: {
+  paid?: string;
+  body?: string;
+  serviceName: string;
+  managementName: string;
+  serviceLogo?: {
     url: string;
   };
-  smallBannerImg?: {
+  managementLogo?: {
+    url: string;
+  };
+}
+interface boothItems {
+  id?: string;
+  title?: string;
+  access?: string;
+  image?: {
     url: string;
   };
 }
 
 type IndexProps = {
-  currentPage: number;
-  blogs: IBlog[];
-  categories: ICategory[];
-  popularArticles: IPopularArticles;
-  pager: [];
-  blogItem: IBlog[];
-  caseItem: caseItems[];
-  recommendItem: recommendItems[];
-  faqItem: faqItems[];
-  handbookItem: handbookItems[];
+  serviceItem: serviceItems[];
+  boothItem: boothItems[];
 };
 
 const Index: NextPage<IndexProps> = (props) => {
@@ -79,45 +38,21 @@ const Index: NextPage<IndexProps> = (props) => {
     <>
       <SeoContent />
       <Hero />
-      <Case articles={props.caseItem} />
-      <Service />
+      <Service articles={props.serviceItem} />
+      <Booth articles={props.boothItem} />
       <ContactSection downloadId="indexD1" contactId="indexC1" />
-      <Scene />
-      <Design />
-      <ContactSection downloadId="indexD2" contactId="indexC2" />
-      <Recommend articles={props.recommendItem} />
-      <Features />
-      <ContactSection downloadId="indexD3" contactId="indexC3" />
-      <Newsindex articles={props.blogItem} />
-      <Handbook articles={props.handbookItem} />
-      <Faqs articles={props.faqItem} />
-      <ContactSection downloadId="indexD4" contactId="indexC4" />
     </>
   );
 };
 
 export async function getStaticProps() {
-  const caseData = await client.get({ endpoint: 'case' });
-  const recommendData = await client.get({ endpoint: 'recommend' });
-  const faqData = await client.get({ endpoint: 'faq' });
-  const handbookData = await client.get({
-    endpoint: 'whitepaper',
-    queries: { limit: config.defaultMaxLimit },
-  });
-  const blogData = await client.get({
-    endpoint: 'blog',
-    queries: { limit: 5 },
-  });
-  const categoryData = await client.get({ endpoint: 'categories' });
+  const serviceData = await client.get({ endpoint: 'service' });
+  const boothData = await client.get({ endpoint: 'booth' });
 
   return {
     props: {
-      blogItem: blogData.contents,
-      caseItem: caseData.contents,
-      recommendItem: recommendData.contents,
-      faqItem: faqData.contents,
-      handbookItem: handbookData.contents,
-      cateoryItem: categoryData.contents,
+      serviceItem: serviceData.contents,
+      boothItem: boothData.contents,
     },
   };
 }

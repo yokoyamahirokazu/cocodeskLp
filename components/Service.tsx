@@ -1,5 +1,4 @@
 import styles from '@styles/components/Components.module.css';
-import { spawn } from 'child_process';
 import Image from 'next/image';
 
 interface Article {

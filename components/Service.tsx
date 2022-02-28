@@ -1,6 +1,6 @@
-// import styles from '@styles/components/Components.module.css';
+import styles from '@styles/components/Components.module.css';
+import { spawn } from 'child_process';
 import Image from 'next/image';
-// import { ReactElement } from 'react';
 
 interface Article {
   id?: string;
@@ -22,24 +22,66 @@ type ServiceProps = {
 
 export const Service: React.FC<ServiceProps> = (props) => {
   return (
-    <section>
-      {props.articles.map((service) => {
-        return (
-          <div key={service.id}>
-            <h3>{service.title}</h3>
-            {service.paid ? '有料' : '無料'}
-            {service.body}
-            {service.serviceLogo && (
-              <Image src={service.serviceLogo.url} width="100" height="100" />
-            )}
-            {service.serviceName && service.serviceName}
-            {service.managementLogo && (
-              <Image src={service.managementLogo.url} width="100" height="100" />
-            )}
-            {service.managementName && service.managementName}
-          </div>
-        );
-      })}
+    <section className={styles.bg_primary_05}>
+      <div className={styles.section_inner}>
+        <h2>
+          利用いただけるサービス
+          <span className={styles.subtitle}>1つのブースで多数のサービスを取り扱っております。</span>
+        </h2>
+        <div className={styles.flex_wrapper}>
+          {props.articles.map((service) => {
+            return (
+              <div key={service.id} className={styles.flex_box_half}>
+                <div className={styles.box_white}>
+                  <h3 className={styles.service_title}>
+                    {service.paid ? <span className={styles.paid}>有料</span> : <span>無料</span>}
+                    {service.title}
+                  </h3>
+                  <div className={styles.box_white_txt}>
+                    <p>{service.body}</p>
+                    <div className={styles.logo_wrapper}>
+                      <div className={styles.logo_box_wrapper}>
+                        <h4>提供サービス</h4>
+                        <div className={styles.logo_box}>
+                          <div className={styles.img_box_C}>
+                            {service.serviceLogo && (
+                              <Image
+                                src={service.serviceLogo.url}
+                                layout={'fill'}
+                                objectFit={'contain'}
+                                alt={service.serviceName && service.serviceName}
+                              />
+                            )}
+                          </div>
+                          <p>{service.serviceName && service.serviceName}</p>
+                        </div>
+                      </div>
+                      {service.managementName && (
+                        <div className={styles.logo_box_wrapper}>
+                          <h4>運営企業</h4>
+                          <div className={styles.logo_box}>
+                            {service.managementLogo && (
+                              <div className={styles.img_box_C}>
+                                <Image
+                                  src={service.managementLogo.url}
+                                  layout={'fill'}
+                                  objectFit={'contain'}
+                                  alt={service.managementName && service.managementName}
+                                />
+                              </div>
+                            )}
+                            <p>{service.managementName}</p>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </section>
   );
 };

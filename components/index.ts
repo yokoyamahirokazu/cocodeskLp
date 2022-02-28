@@ -1,3 +1,4 @@
+export * from './About';
 export * from './Booth';
 export * from './Button';
 export * from './Component';
@@ -6,6 +7,7 @@ export * from './Features';
 export * from './Footer';
 export * from './Header';
 export * from './Hero';
+export * from './Howto';
 export * from './Loader';
 export * from './Meta';
 export * from './SeoContent';

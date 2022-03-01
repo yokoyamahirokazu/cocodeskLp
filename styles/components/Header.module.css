@@ -27,11 +27,20 @@
 .logoImg {
   width: 287px;
   height: 30px;
-  position: relative;
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translate(0, -50%);
   -webkit-transition: all 0.2s ease;
   -moz-transition: all 0.2s ease;
   -o-transition: all 0.2s ease;
   transition: all 0.2s ease;
+}
+
+.header_content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 nav.header_nav ul {
@@ -67,6 +76,21 @@ nav.header_nav ul li a:active {
   height: 50px;
   box-shadow: 0px 4px 30px rgba(0, 35, 51, 0.2);
 }
+.header_button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.headerFixed .header_content {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translate(0, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
 
 @media screen and (max-width: 1160px) {
   .drawerBtn {
@@ -85,10 +109,11 @@ nav.header_nav ul li a:active {
   }
 
   .header_button {
-    right: 60px;
+    right: 40px;
     position: absolute;
     top: 50%;
     transform: translate(0, -50%);
+    width: 400px;
   }
   nav.header_nav {
     display: none;

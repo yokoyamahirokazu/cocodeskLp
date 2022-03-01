@@ -19,7 +19,8 @@
   width: 180px;
 }
 .footer_content {
-  margin: 0 0 0 48px;
+  margin: 0 0 0 62px;
+  width: calc(100% - 180px -62px);
 }
 
 ul.footer_nav {

@@ -2,36 +2,11 @@ import { NextPage } from 'next';
 import React from 'react';
 import styles from '@styles/components/Components.module.css';
 import SeoContent from '@components/SeoContent';
-import Router from 'next/router';
-import Button from '@components/Button';
-import Image from 'next/image';
 
-import { useForm } from 'react-hook-form';
+import Image from 'next/image';
+import HubspotForm from 'react-hubspot-form';
 
 const Contact: NextPage = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    mode: 'onChange',
-  });
-
-  const submit = (values) => {
-    fetch('/api/contact', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json, text/plain, */*',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(values),
-    }).then((res) => {
-      if (res.status === 200) {
-        Router.push('/contact/thanks');
-      }
-    });
-  };
-
   return (
     <>
       <SeoContent
@@ -58,72 +33,14 @@ const Contact: NextPage = () => {
         <div className={styles.contactPageFlexRight}>
           <div className={styles.contactPageFlexInner}>
             <div className={styles.contactContent}>
-              <form onSubmit={handleSubmit(submit)}>
-                <div className={styles.formContentBox}>
-                  <label htmlFor="name">
-                    お問い合わせ内容<span className={styles.required}>*</span>
-                  </label>
-                  <input
-                    type="radio"
-                    name="name"
-                    {...register('name', { required: true, maxLength: 80 })}
-                  />
-                  {errors.name?.type === 'required' && (
-                    <p className={styles.errorText}>この質問は必須項目です</p>
-                  )}
-                  {errors.name?.type === 'maxLength' && (
-                    <p className={styles.errorText}>80文字以内で記入してください</p>
-                  )}
-                </div>
-                <div className={styles.formContentBox}>
-                  <label htmlFor="name">
-                    お名前<span className={styles.required}>*</span>
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    {...register('name', { required: true, maxLength: 80 })}
-                  />
-                  {errors.name?.type === 'required' && (
-                    <p className={styles.errorText}>この質問は必須項目です</p>
-                  )}
-                  {errors.name?.type === 'maxLength' && (
-                    <p className={styles.errorText}>80文字以内で記入してください</p>
-                  )}
-                </div>
-                <div className={styles.formContentBox}>
-                  <label htmlFor="email">
-                    メールアドレス<span className={styles.required}>*</span>
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    {...register('email', {
-                      required: true,
-                      pattern: /^\S+@\S+$/i,
-                    })}
-                  />
-                  {errors.email?.type === 'required' && (
-                    <p className={styles.errorText}>この質問は必須項目です</p>
-                  )}
-                  {errors.email?.type === 'pattern' && (
-                    <p className={styles.errorText}>メールアドレスを入力してください</p>
-                  )}
-                </div>
-
-                <div className={styles.formContentBox}>
-                  <label htmlFor="message">
-                    メッセージ<span className={styles.required}>*</span>
-                  </label>
-                  <textarea name="message" {...register('message', { required: true })}></textarea>
-                  {errors.message?.type === 'required' && (
-                    <p className={styles.errorText}>この質問は必須項目です</p>
-                  )}
-                </div>
-                <Button color="primary" size="default" types="submit">
-                  送信する
-                </Button>
-              </form>
+              <p className={styles.contact_warning}>
+                <span>*</span>は必須項目
+              </p>
+              <HubspotForm
+                portalId="21136941"
+                formId="231bf4c0-33f8-4a32-9c7d-7cc4f917134e"
+                loading={<div>Loading...</div>}
+              />
             </div>
           </div>
         </div>

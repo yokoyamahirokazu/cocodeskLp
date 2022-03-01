@@ -130,6 +130,7 @@ p {
   line-height: 1.7;
   font-feature-settings: 'pwid' 1;
   font-size: 1.6rem;
+  word-break: break-all;
 }
 
 section {
@@ -139,9 +140,11 @@ section {
 h1,
 h2 {
   letter-spacing: 0.2rem;
+  font-weight: bold;
 }
 h1 {
   font-size: 3.6rem;
+  color: var(--primary);
 }
 h2 {
   font-size: 3.2rem;
@@ -154,6 +157,7 @@ h3 {
   font-size: 2.4rem;
   line-height: normal;
   margin: 0 0 16px 0;
+  font-weight: bold;
 }
 
 h4 {

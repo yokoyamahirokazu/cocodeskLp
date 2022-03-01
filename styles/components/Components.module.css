@@ -132,6 +132,7 @@ p.small {
   display: block;
   font-size: 1.6rem;
   margin: 16px 0 0;
+  font-weight: normal;
 }
 
 ul.vertical {
@@ -254,7 +255,6 @@ h3.service_title span.paid {
   margin: 0 0 32px;
   text-align: center;
   color: var(--primary);
-  font-size: 2.4rem;
 }
 .howto .flex_wrapper {
   justify-content: center;
@@ -381,6 +381,17 @@ h3.service_title span.paid {
   align-items: center;
 }
 
+@media screen and (max-width: 640px) {
+  .operation_box {
+    margin: 0 0 48px 0;
+    padding: 0 0 48px;
+    border-bottom: solid 1px var(--light-shade);
+  }
+  .operation_logo {
+    margin: 0 0 36px 0;
+    height: auto;
+  }
+}
 /* contact section */
 
 .contact_flex {
@@ -610,6 +621,16 @@ p.downloadTxt span {
 .test {
   background-color: #000;
 }
+
+p.contact_warning {
+  font-size: 1.2rem;
+  text-align: right;
+  margin: 0 0 32px 0;
+}
+p.contact_warning span {
+  color: var(--danger);
+}
+
 /* thanks */
 
 .thanksPage {

@@ -9,38 +9,40 @@ export const Operation: React.FC = () => {
 
         <div className={styles.flex_wrapper}>
           <div className={styles.flex_box_half}>
-            <div className={styles.operation_logo}>
-              <Image
-                src="/images/logo_fujifilm.png"
-                alt="富士フイルムビジネスイノベーション株式会社"
-                width="200"
-                height="34"
-              />
-            </div>
-            <p>富士フイルムビジネスイノベーション株式会社</p>
-            <div style={{ margin: '16px 0 0' }}>
+            <div className={styles.operation_box}>
+              <div className={styles.operation_logo}>
+                <Image
+                  src="/images/logo_fujifilm.png"
+                  alt="富士フイルムビジネスイノベーション株式会社"
+                  width="200"
+                  height="34"
+                />
+              </div>
+              <p>富士フイルムビジネスイノベーション株式会社</p>
+              <div style={{ margin: '16px 0 0' }}>
+                <p className={styles.small}>
+                  本社所在地
+                  <br />
+                  〒107-0052
+                  <br />
+                  東京都港区赤坂九丁目7番3号
+                  <br /> https://www.fujifilm.com/fb/
+                </p>
+              </div>
+              <div className={styles.operation_service_logo}>
+                <Image
+                  src="/images/logo_cocodesk.png"
+                  alt="富士フイルムビジネスイノベーション株式会社"
+                  width="140"
+                  height="56"
+                />
+              </div>
               <p className={styles.small}>
-                本社所在地
+                「CocoDesk」は富士フイルムビジネスイノベーション株式会社の登録商標です。
                 <br />
-                〒107-0052
-                <br />
-                東京都港区赤坂九丁目7番3号
-                <br /> https://www.fujifilm.com/fb/
+                https://www.fujifilm.com/fb/solution/menu/cocodesk
               </p>
             </div>
-            <div className={styles.operation_service_logo}>
-              <Image
-                src="/images/logo_cocodesk.png"
-                alt="富士フイルムビジネスイノベーション株式会社"
-                width="140"
-                height="56"
-              />
-            </div>
-            <p className={styles.small}>
-              「CocoDesk」は富士フイルムビジネスイノベーション株式会社の登録商標です。
-              <br />
-              https://www.fujifilm.com/fb/solution/menu/cocodesk
-            </p>
           </div>
           <div className={styles.flex_box_half}>
             <div className={styles.operation_logo}>

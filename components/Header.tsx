@@ -47,7 +47,7 @@ export const Header: React.FC = () => {
       <header
         className={isHeaderShown == true ? styles.header : `${styles.headerFixed} ${styles.header}`}
       >
-        {router.pathname != '/' && (
+        {router.pathname != '/' ? (
           <div className={styles.logo}>
             <Link href="/">
               <a>
@@ -62,40 +62,59 @@ export const Header: React.FC = () => {
               </a>
             </Link>
           </div>
+        ) : (
+          isHeaderShown == false && (
+            <div className={styles.logo}>
+              <Link href="/">
+                <a>
+                  <div className={styles.logoImg}>
+                    <Image
+                      src="/images/cocodeskOssLogo.svg"
+                      alt="遠隔接客サービスRURA"
+                      layout={'fill'}
+                      objectFit={'contain'}
+                    />
+                  </div>
+                </a>
+              </Link>
+            </div>
+          )
         )}
-        <nav className={styles.header_nav}>
-          <ul>
-            {router.pathname == '/' ? (
-              <>
-                {navItem.map((navContent) => (
-                  <li key={navContent.name}>
-                    <Scroll to={navContent.url} smooth={true} duration={600}>
-                      {navContent.name}
-                    </Scroll>
-                  </li>
-                ))}
-              </>
-            ) : (
-              <>
-                {navItem.map((navContent) => (
-                  <li key={navContent.name}>
-                    <Link href="/" as={`/#${navContent.url}`}>
-                      {navContent.name}
-                    </Link>
-                  </li>
-                ))}
-              </>
-            )}
-          </ul>
-        </nav>
+        <div className={styles.header_content}>
+          <nav className={styles.header_nav}>
+            <ul>
+              {router.pathname == '/' ? (
+                <>
+                  {navItem.map((navContent) => (
+                    <li key={navContent.name}>
+                      <Scroll to={navContent.url} smooth={true} duration={600}>
+                        {navContent.name}
+                      </Scroll>
+                    </li>
+                  ))}
+                </>
+              ) : (
+                <>
+                  {navItem.map((navContent) => (
+                    <li key={navContent.name}>
+                      <Link href="/" as={`/#${navContent.url}`}>
+                        {navContent.name}
+                      </Link>
+                    </li>
+                  ))}
+                </>
+              )}
+            </ul>
+          </nav>
 
-        <div className={styles.header_button}>
-          <Button color="primary" size="small" linkTo="#">
-            ご予約はこちら
-          </Button>
-          <Button fill="outline" color="primary" size="small" linkTo="/contact" as="/contact">
-            お問い合わせ
-          </Button>
+          <div className={styles.header_button}>
+            <Button color="primary" size="small" linkTo="#">
+              ご予約はこちら
+            </Button>
+            <Button fill="outline" color="primary" size="small" linkTo="/contact" as="/contact">
+              お問い合わせ
+            </Button>
+          </div>
         </div>
         <DrawerMenu />
       </header>

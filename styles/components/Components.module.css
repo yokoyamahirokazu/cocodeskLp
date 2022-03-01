@@ -1,3 +1,7 @@
+p.small {
+  font-size: 1.3rem;
+}
+
 .bg_primary {
   background-color: var(--primary);
   color: #fff;
@@ -66,10 +70,6 @@
   width: 100%;
 }
 
-.box_white h3 {
-  font-size: 2.4rem;
-  margin: 0 0 16px 0;
-}
 .flex_box_third h3 {
   font-size: 2.2rem;
 }
@@ -130,6 +130,24 @@
   margin: 16px 0 0;
 }
 
+ul.vertical {
+  display: block;
+  max-width: 720px;
+  margin: 0 auto;
+}
+ul.vertical li {
+  margin: 0 0 32px 0;
+}
+
+.btn_wrapper {
+  margin: 64px auto 0;
+  text-align: center;
+  color: var(--primary);
+}
+.btn_wrapper p {
+  margin: 0 0 8px 0;
+}
+
 @media screen and (max-width: 640px) {
   .section_inner {
     margin: 0 auto;
@@ -155,6 +173,10 @@
   }
   .flex_box_third:nth-child(odd) {
     margin: 0 0 16px;
+  }
+
+  ul.vertical li {
+    margin: 0 0 16px 0;
   }
 }
 
@@ -295,4 +317,62 @@ h3.service_title span.paid {
     justify-content: flex-start;
     font-size: 1.5rem;
   }
+}
+
+/* booth */
+
+.booth_flex {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.booth_img {
+  width: 140px;
+  border-radius: 6px 0 0 6px;
+  overflow: hidden;
+}
+
+.booth_txt {
+  width: calc(100% - 140px);
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 640px) {
+  .booth_flex {
+    align-items: flex-start;
+  }
+
+  .booth_img {
+    width: 120px;
+    border-radius: 0;
+    padding: 8px;
+    overflow: hidden;
+  }
+
+  .booth_txt {
+    width: calc(100% - 120px);
+    padding: 8px 16px 8px 8px;
+    box-sizing: border-box;
+  }
+
+  .booth_txt p {
+    font-size: 1.2rem;
+  }
+}
+
+/* Operation */
+
+.operation_logo {
+  margin: 0 0 36px 0;
+  height: 88px;
+  display: flex;
+  align-items: center;
+}
+.operation_service_logo {
+  margin: 32px 0 16px;
+  height: 56px;
+  display: flex;
+  align-items: center;
 }

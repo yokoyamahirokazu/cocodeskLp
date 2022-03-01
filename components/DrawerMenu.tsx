@@ -18,14 +18,11 @@ const DrawerMenu = () => {
   const router = useRouter();
 
   const navItem = [
-    { url: 'case', name: '導入事例' },
-    { url: 'service', name: 'サービス' },
-    { url: 'scene', name: 'シーン' },
-    { url: 'design', name: 'デザイン' },
-    { url: 'features', name: '機能' },
-    { url: 'news', name: '新着情報' },
-    { url: 'handbook', name: 'ハンドブック' },
-    { url: 'faq', name: 'FAQ' },
+    { url: 'about', name: '当サービスについて' },
+    { url: 'features', name: '特徴・機能' },
+    { url: 'service', name: '利用いただけるサービス' },
+    { url: 'howto', name: '利用方法' },
+    { url: 'booth', name: '設置場所' },
   ];
 
   return (

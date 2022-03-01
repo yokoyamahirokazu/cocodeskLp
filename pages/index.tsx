@@ -1,5 +1,5 @@
 import { NextPage } from 'next';
-import { Hero, Service, Booth, About, Features, Howto } from '@components';
+import { Hero, Service, Booth, About, Features, Howto, Operation } from '@components';
 
 import ContactSection from '@components/ContactSection';
 import SeoContent from '@components/SeoContent';
@@ -43,7 +43,8 @@ const Index: NextPage<IndexProps> = (props) => {
       <Service articles={props.serviceItem} />
       <Howto />
       <Booth articles={props.boothItem} />
-      <ContactSection downloadId="indexD1" contactId="indexC1" />
+      <Operation />
+      <ContactSection />
     </>
   );
 };

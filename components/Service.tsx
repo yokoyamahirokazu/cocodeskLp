@@ -1,5 +1,6 @@
 import styles from '@styles/components/Components.module.css';
 import Image from 'next/image';
+import Button from '@components/Button';
 
 interface Article {
   id?: string;
@@ -79,6 +80,12 @@ export const Service: React.FC<ServiceProps> = (props) => {
               </div>
             );
           })}
+        </div>
+        <div className={styles.btn_wrapper}>
+          <p>サービスについて、詳しくは予約サイトをご覧ください</p>
+          <Button color="primary" size="default" linkTo="" as="/contact">
+            サービスを詳しく見る
+          </Button>
         </div>
       </div>
     </section>

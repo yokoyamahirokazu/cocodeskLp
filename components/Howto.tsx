@@ -1,5 +1,6 @@
 import styles from '@styles/components/Components.module.css';
 import Image from 'next/image';
+import Button from '@components/Button';
 
 export const Howto: React.FC = () => {
   return (
@@ -175,6 +176,12 @@ export const Howto: React.FC = () => {
               </div>
             </div>
           </div>
+        </div>
+        <div className={styles.btn_wrapper}>
+          <p>利用方法に関して、詳しくは予約サイトをご覧ください</p>
+          <Button color="primary" size="default" linkTo="" as="/contact">
+            利用方法を詳しく見る
+          </Button>
         </div>
       </div>
     </section>

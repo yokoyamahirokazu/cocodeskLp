@@ -10,5 +10,6 @@ export * from './Hero';
 export * from './Howto';
 export * from './Loader';
 export * from './Meta';
+export * from './Operation';
 export * from './SeoContent';
 export * from './Service';

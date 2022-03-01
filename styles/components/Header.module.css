@@ -75,6 +75,7 @@ nav.header_nav ul li a:active {
 .headerFixed {
   height: 50px;
   box-shadow: 0px 4px 30px rgba(0, 35, 51, 0.2);
+  width: 100%;
 }
 .header_button {
   display: flex;
@@ -84,7 +85,7 @@ nav.header_nav ul li a:active {
 
 .headerFixed .header_content {
   position: absolute;
-  right: 16px;
+  right: 0;
   top: 50%;
   transform: translate(0, -50%);
   display: flex;
@@ -119,7 +120,7 @@ nav.header_nav ul li a:active {
   }
 
   .header_button {
-    right: 40px;
+    right: 60px;
     position: absolute;
     top: 50%;
     transform: translate(0, -50%);

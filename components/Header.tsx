@@ -80,7 +80,9 @@ export const Header: React.FC = () => {
             </div>
           )
         )}
-        <div className={styles.header_content}>
+        <div
+          className={router.pathname == '/' ? styles.header_content : styles.header_content_under}
+        >
           <nav className={styles.header_nav}>
             <ul>
               {router.pathname == '/' ? (

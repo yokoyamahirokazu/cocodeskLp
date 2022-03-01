@@ -92,6 +92,16 @@ nav.header_nav ul li a:active {
   justify-content: flex-end;
 }
 
+.header_content_under {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translate(0, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
 @media screen and (max-width: 1160px) {
   .drawerBtn {
     position: absolute;

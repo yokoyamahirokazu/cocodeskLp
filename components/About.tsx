@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export const About: React.FC = () => {
   return (
-    <section className={styles.bg_primary_three_quarter}>
+    <section id="about" className={styles.bg_primary_three_quarter}>
       <div className={styles.section_inner}>
         <h2>CocoDesk オンライン相談サービスとは？</h2>
         <p className={styles.about_lead}>

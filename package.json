@@ -30,6 +30,7 @@
     "jsdom": "^16.5.3",
     "microcms-js-sdk": "^2.0.0",
     "next": "^12.0.3",
+    "nodemailer": "^6.7.2",
     "prettier": "^2.2.1",
     "react": "^17.0.2",
     "react-copy-to-clipboard": "^5.0.4",

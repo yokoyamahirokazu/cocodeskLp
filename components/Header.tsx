@@ -89,12 +89,14 @@ export const Header: React.FC = () => {
           </ul>
         </nav>
 
-        <Button color="primary" size="small" linkTo="#">
-          ご予約はこちら
-        </Button>
-        <Button fill="outline" color="primary" size="small" linkTo="/contact" as="/contact">
-          お問い合わせ
-        </Button>
+        <div className={styles.header_button}>
+          <Button color="primary" size="small" linkTo="#">
+            ご予約はこちら
+          </Button>
+          <Button fill="outline" color="primary" size="small" linkTo="/contact" as="/contact">
+            お問い合わせ
+          </Button>
+        </div>
         <DrawerMenu />
       </header>
       <TopButton />

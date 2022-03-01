@@ -6,7 +6,6 @@ import 'react-modern-drawer/dist/index.css';
 import { IoIosMenu } from 'react-icons/io';
 import { useRouter } from 'next/router';
 import { Link as Scroll } from 'react-scroll';
-import Image from 'next/image';
 import Button from '@components/Button';
 
 const DrawerMenu = () => {
@@ -23,6 +22,7 @@ const DrawerMenu = () => {
     { url: 'service', name: '利用いただけるサービス' },
     { url: 'howto', name: '利用方法' },
     { url: 'booth', name: '設置場所' },
+    { url: 'operation', name: '運営会社' },
   ];
 
   return (
@@ -33,21 +33,6 @@ const DrawerMenu = () => {
       <Drawer open={isOpen} onClose={toggleDrawer} direction="right">
         <div className={styles.drawerInner}>
           <div className={styles.drawerInnerContent}>
-            <div className={styles.logo}>
-              <Link href="/">
-                <a>
-                  <div className={styles.logoImg}>
-                    <Image
-                      src="/images/rura_logo_blue.svg"
-                      alt="遠隔接客サービスRURA"
-                      layout={'fill'}
-                      objectFit={'contain'}
-                    />
-                  </div>
-                </a>
-              </Link>
-            </div>
-
             <ul>
               <li>
                 <Link href={'/'}>
@@ -76,32 +61,36 @@ const DrawerMenu = () => {
                   ))}
                 </>
               )}
-            </ul>
-
-            <div className={styles.drawerInnerBtn}>
-              <div onClick={toggleDrawer}>
-                <Button color="primary" size="normal" types="link" linkTo="/download">
-                  資料ダウンロード
-                </Button>
-              </div>
-              <div onClick={toggleDrawer}>
-                <Button color="secondary" size="normal" types="link" linkTo="/contact">
-                  お問い合わせ
-                </Button>
-              </div>
-            </div>
-            <ul className={styles.simple}>
               <li>
-                <Link href={'/company'}>
-                  <a onClick={toggleDrawer}>運営会社</a>
-                </Link>
-              </li>
-              <li>
-                <Link href={'/company/privacy-policy'}>
+                <Link href="/privacy-policy" as="/privacy-policy">
                   <a onClick={toggleDrawer}>プライバシーポリシー</a>
                 </Link>
               </li>
             </ul>
+
+            <div className={styles.drawerInnerBtn}>
+              <div onClick={toggleDrawer}>
+                <Button
+                  color="primary"
+                  size="default"
+                  types="link"
+                  linkTo="https://www.lss-box-reservation.com/home"
+                >
+                  ご予約はこちら
+                </Button>
+              </div>
+              <div onClick={toggleDrawer}>
+                <Button
+                  color="primary"
+                  fill="outline"
+                  size="default"
+                  types="link"
+                  linkTo="/contact"
+                >
+                  お問い合わせ
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
       </Drawer>

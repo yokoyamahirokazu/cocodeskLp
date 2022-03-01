@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export const Operation: React.FC = () => {
   return (
-    <section>
+    <section id="operation">
       <div className={styles.section_inner}>
         <h2>運営企業</h2>
 

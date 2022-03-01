@@ -4,7 +4,7 @@ import Button from '@components/Button';
 
 export const Howto: React.FC = () => {
   return (
-    <section>
+    <section id="howto">
       <div className={styles.section_inner}>
         <h2>利用方法</h2>
         <div className={styles.howto}>
@@ -179,7 +179,11 @@ export const Howto: React.FC = () => {
         </div>
         <div className={styles.btn_wrapper}>
           <p>利用方法に関して、詳しくは予約サイトをご覧ください</p>
-          <Button color="primary" size="default" linkTo="" as="/contact">
+          <Button
+            color="primary"
+            size="default"
+            linkTo="https://www.lss-box-reservation.com/how-to-use"
+          >
             利用方法を詳しく見る
           </Button>
         </div>

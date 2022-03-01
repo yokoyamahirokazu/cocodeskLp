@@ -140,6 +140,9 @@ h1,
 h2 {
   letter-spacing: 0.2rem;
 }
+h1 {
+  font-size: 3.6rem;
+}
 h2 {
   font-size: 3.2rem;
   line-height: normal;
@@ -178,7 +181,7 @@ textarea {
 input,
 textarea {
   outline: 0;
-  background-color: var(--from-bg) !important;
+  background-color: var(--light) !important;
   border: 0;
   width: 100%;
   box-sizing: border-box !important;
@@ -189,6 +192,7 @@ textarea {
   display: block;
   position: relative !important;
   border-radius: 2px;
+  border: solid 1px var(--light-shade);
 }
 
 input:focus,
@@ -198,6 +202,7 @@ textarea:focus {
 
 textarea {
   resize: vertical;
+  min-height: 100px;
 }
 
 button {
@@ -303,7 +308,7 @@ button {
 }
 
 .main {
-  padding: 80px 0 0 0;
+  padding: 60px 0 0 0;
 }
 
 @media screen and (max-width: 640px) {

@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export const Features: React.FC = () => {
   return (
-    <section>
+    <section id="features">
       <div className={styles.section_inner}>
         <h2>特徴・機能</h2>
 

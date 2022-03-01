@@ -40,8 +40,10 @@ const Index: NextPage<IndexProps> = (props) => {
       <Hero />
       <About />
       <Features />
+      <ContactSection />
       <Service articles={props.serviceItem} />
       <Howto />
+      <ContactSection />
       <Booth articles={props.boothItem} />
       <Operation />
       <ContactSection />

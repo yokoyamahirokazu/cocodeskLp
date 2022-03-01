@@ -22,7 +22,7 @@ type ServiceProps = {
 
 export const Service: React.FC<ServiceProps> = (props) => {
   return (
-    <section className={styles.bg_primary_05}>
+    <section id="service" className={styles.bg_primary_05}>
       <div className={styles.section_inner}>
         <h2>
           利用いただけるサービス
@@ -83,7 +83,11 @@ export const Service: React.FC<ServiceProps> = (props) => {
         </div>
         <div className={styles.btn_wrapper}>
           <p>サービスについて、詳しくは予約サイトをご覧ください</p>
-          <Button color="primary" size="default" linkTo="" as="/contact">
+          <Button
+            color="primary"
+            size="default"
+            linkTo="https://www.lss-box-reservation.com/service-guide"
+          >
             サービスを詳しく見る
           </Button>
         </div>

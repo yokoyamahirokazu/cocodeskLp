@@ -4,6 +4,7 @@ import styles from '@styles/components/Components.module.css';
 import SeoContent from '@components/SeoContent';
 import Router from 'next/router';
 import Button from '@components/Button';
+import Image from 'next/image';
 
 import { useForm } from 'react-hook-form';
 
@@ -35,14 +36,20 @@ const Contact: NextPage = () => {
     <>
       <SeoContent
         pageTitle="お問い合わせ"
-        pageDescription="株式会社LTDへのお問い合わせページです。"
+        pageDescription="CocoDeskオンライン相談サービスのお問い合わせページ。"
       />
       <div className={styles.contactPageFlex}>
         <div className={styles.contactPageFlexLeft}>
           <div className={styles.contactPageFlexInner}>
-            <h1 className={styles.headline}>お問い合わせ</h1>
+            <div className={styles.contactLogo}>
+              <Image
+                src="/images/cocodeskOssLogoVertical.svg"
+                alt="CocoDeskオンライン相談サービスロゴ"
+                layout={'fill'}
+                objectFit={'contain'}
+              />
+            </div>
             <p>
-              弊社にご関心いただきありがとうございます。
               必須項目を入力の上、フォームの送信をお願いします。
               担当者が内容を確認の上、折り返し連絡させていただきます。
             </p>
@@ -54,7 +61,23 @@ const Contact: NextPage = () => {
               <form onSubmit={handleSubmit(submit)}>
                 <div className={styles.formContentBox}>
                   <label htmlFor="name">
-                    お名前<span className={styles.required}>必須</span>
+                    お問い合わせ内容<span className={styles.required}>*</span>
+                  </label>
+                  <input
+                    type="radio"
+                    name="name"
+                    {...register('name', { required: true, maxLength: 80 })}
+                  />
+                  {errors.name?.type === 'required' && (
+                    <p className={styles.errorText}>この質問は必須項目です</p>
+                  )}
+                  {errors.name?.type === 'maxLength' && (
+                    <p className={styles.errorText}>80文字以内で記入してください</p>
+                  )}
+                </div>
+                <div className={styles.formContentBox}>
+                  <label htmlFor="name">
+                    お名前<span className={styles.required}>*</span>
                   </label>
                   <input
                     type="text"
@@ -70,7 +93,7 @@ const Contact: NextPage = () => {
                 </div>
                 <div className={styles.formContentBox}>
                   <label htmlFor="email">
-                    メールアドレス<span className={styles.required}>必須</span>
+                    メールアドレス<span className={styles.required}>*</span>
                   </label>
                   <input
                     type="email"
@@ -87,36 +110,17 @@ const Contact: NextPage = () => {
                     <p className={styles.errorText}>メールアドレスを入力してください</p>
                   )}
                 </div>
-                <div className={styles.formContentBox}>
-                  <label htmlFor="tel">
-                    電話番号<span className={styles.required}>必須</span>
-                  </label>
-                  <input
-                    type="tel"
-                    name="tel"
-                    {...register('tel', {
-                      required: true,
-                      maxLength: 14,
-                    })}
-                  />
-                  {errors.tel?.type === 'required' && (
-                    <p className={styles.errorText}>この質問は必須項目です</p>
-                  )}
-                  {errors.tel?.type === 'maxLength' && (
-                    <p className={styles.errorText}>電話番号を記入してください</p>
-                  )}
-                </div>
 
                 <div className={styles.formContentBox}>
                   <label htmlFor="message">
-                    メッセージ<span className={styles.required}>必須</span>
+                    メッセージ<span className={styles.required}>*</span>
                   </label>
                   <textarea name="message" {...register('message', { required: true })}></textarea>
                   {errors.message?.type === 'required' && (
                     <p className={styles.errorText}>この質問は必須項目です</p>
                   )}
                 </div>
-                <Button color="primary" size="large" types="submit">
+                <Button color="primary" size="default" types="submit">
                   送信する
                 </Button>
               </form>

@@ -49,7 +49,11 @@ export const Booth: React.FC<BoothProps> = (props) => {
         </ul>
         <div className={styles.btn_wrapper}>
           <p>設置場所に関して、詳しくは予約サイトをご覧ください</p>
-          <Button color="primary" size="default" linkTo="" as="/contact">
+          <Button
+            color="primary"
+            size="default"
+            linkTo="https://www.lss-box-reservation.com/booth-location"
+          >
             設置場所について詳しく見る
           </Button>
         </div>

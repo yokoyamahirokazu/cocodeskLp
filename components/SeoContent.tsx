@@ -14,7 +14,7 @@ const SeoContent = ({ pageTitle, pageDescription, pageUrl, ogpImg, noIndex }: Pr
   const defaultDescription =
     '駅ナカや商業施設で展開する「CocoDesk」というワークブースを活用し、遠隔地にいる専門家（サービス担当者）にオンラインで相談できるサービスです。通勤や通学、お買い物の際に、いつでも手軽に利用でき、予約での利用も可能です。また、さまざまな事業者のサービスを1つのブースで利用できるのも特徴です。';
   const defaultPageUrl = config.baseUrl;
-  const defaultOgpImg = `${config.baseUrl}/images/og_image.jpg`;
+  const defaultOgpImg = `${config.baseUrl}/images/og_image.png`;
 
   const title = pageTitle ? `${pageTitle} | CocoDeskオンライン相談サービス` : defaultTitle;
   const description = pageDescription ? pageDescription : defaultDescription;

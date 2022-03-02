@@ -34,7 +34,7 @@ const ContactSection: React.FC = () => {
             <Button color="white" size="default" linkTo="https://www.lss-box-reservation.com/home">
               ご予約はこちら
             </Button>
-            <Button color="white" fill="outline" size="default" linkTo="#">
+            <Button color="white" fill="outline" size="default" linkTo="/contact" as="/contact">
               お問い合わせ
             </Button>
           </div>

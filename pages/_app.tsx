@@ -3,6 +3,8 @@ import Head from 'next/head';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { Footer, Header } from '@components';
 import '../styles/globals.scss';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 
 const queryClient = new QueryClient();
 

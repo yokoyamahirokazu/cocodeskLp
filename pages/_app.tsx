@@ -7,23 +7,46 @@ import '../styles/globals.scss';
 const queryClient = new QueryClient();
 
 export default function MyApp({ Component, pageProps }: AppProps) {
-  return (
-    <>
-      <Head>
-        <script
-          src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.2/lazysizes.min.js"
-          async
-        ></script>
-      </Head>
-      <div className="wrapper">
-        <Header />
-        <QueryClientProvider client={queryClient}>
-          <div className="main">
-            <Component {...pageProps} />
+  switch (pageProps.layout) {
+    case 'simple': {
+      return (
+        <>
+          <Head>
+            <script
+              src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.2/lazysizes.min.js"
+              async
+            ></script>
+          </Head>
+          <div className="wrapper">
+            <QueryClientProvider client={queryClient}>
+              <div className="main">
+                <Component {...pageProps} />
+              </div>
+            </QueryClientProvider>
           </div>
-        </QueryClientProvider>
-      </div>
-      <Footer />
-    </>
-  );
+        </>
+      );
+    }
+    default: {
+      return (
+        <>
+          <Head>
+            <script
+              src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.2/lazysizes.min.js"
+              async
+            ></script>
+          </Head>
+          <div className="wrapper">
+            <Header />
+            <QueryClientProvider client={queryClient}>
+              <div className="main">
+                <Component {...pageProps} />
+              </div>
+            </QueryClientProvider>
+          </div>
+          <Footer />
+        </>
+      );
+    }
+  }
 }

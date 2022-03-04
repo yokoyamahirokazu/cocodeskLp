@@ -12,6 +12,7 @@ interface serviceItems {
   body?: string;
   serviceName: string;
   managementName: string;
+  privacyUrl: string;
   serviceLogo?: {
     url: string;
   };

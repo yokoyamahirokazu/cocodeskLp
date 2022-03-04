@@ -62,6 +62,11 @@ const DrawerMenu = () => {
                 </>
               )}
               <li>
+                <Link href="/terms" as="/terms">
+                  <a onClick={toggleDrawer}>利用規約</a>
+                </Link>
+              </li>
+              <li>
                 <Link href="/privacy-policy" as="/privacy-policy">
                   <a onClick={toggleDrawer}>プライバシーポリシー</a>
                 </Link>

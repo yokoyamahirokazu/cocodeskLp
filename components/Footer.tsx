@@ -56,6 +56,11 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
+                <Link href="/terms" as="/terms">
+                  <a>利用規約</a>
+                </Link>
+              </li>
+              <li>
                 <Link href="/privacy-policy" as="/privacy-policy">
                   <a>プライバシーポリシー</a>
                 </Link>

@@ -36,6 +36,7 @@ const SeoContent = ({ pageTitle, pageDescription, pageUrl, ogpImg, noIndex }: Pr
       <link rel="preconnect" href="https://fonts.gstatic.com" />
       <link rel="canonical" href={url} />
       {noIndex && <meta name="robots" content="noindex" />}
+      <meta name="robots" content="noindex" />
     </Head>
   );
 };

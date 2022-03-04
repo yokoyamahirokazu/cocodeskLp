@@ -4,17 +4,14 @@ import styles from '@styles/components/Company.module.css';
 import ContactSection from '@components/ContactSection';
 import SeoContent from '@components/SeoContent';
 
-const PrivacyIndex: NextPage = () => {
+const TermsIndex: NextPage = () => {
   return (
     <>
-      <SeoContent
-        pageTitle="プライバシーポリシー"
-        pageDescription="プライバシーポリシーページです。"
-      />
+      <SeoContent pageTitle="利用規約" pageDescription="利用規約のページです。" />
       <div className={styles.companyContent}>
         <div className={styles.companyArticle}>
           <section>
-            <h1>プライバシーポリシー</h1>
+            <h1>利用規約</h1>
           </section>
           <section>
             <div>
@@ -93,4 +90,4 @@ const PrivacyIndex: NextPage = () => {
   );
 };
 
-export default PrivacyIndex;
+export default TermsIndex;

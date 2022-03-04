@@ -133,6 +133,10 @@ p {
   word-break: break-all;
 }
 
+p a {
+  text-decoration: underline;
+}
+
 section {
   overflow: hidden;
 }

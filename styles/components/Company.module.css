@@ -130,3 +130,14 @@
     font-weight: bold;
   }
 }
+
+/* simple content */
+
+.simpleContent h1,
+.simpleContent h2,
+.simpleContent h3,
+.simpleContent h4,
+.simpleContent h5,
+.simpleContent p {
+  color: var(--dark);
+}

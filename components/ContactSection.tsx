@@ -31,7 +31,11 @@ const ContactSection: React.FC = () => {
               <br />
               遠隔地にいる専門家にいつでも気軽にご相談
             </p>
-            <Button color="white" size="default" linkTo="https://www.lss-box-reservation.com/home">
+            <Button
+              color="white"
+              size="default"
+              linkTo="https://www.lss-box-reservation.com/home?PLM=104"
+            >
               ご予約はこちら
             </Button>
             <Button color="white" fill="outline" size="default" linkTo="/contact" as="/contact">

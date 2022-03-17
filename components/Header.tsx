@@ -110,7 +110,11 @@ export const Header: React.FC = () => {
           </nav>
 
           <div className={styles.header_button}>
-            <Button color="primary" size="small" linkTo="#">
+            <Button
+              color="primary"
+              size="small"
+              linkTo="https://www.lss-box-reservation.com/home?PLM=104"
+            >
               ご予約はこちら
             </Button>
             <Button fill="outline" color="primary" size="small" linkTo="/contact" as="/contact">

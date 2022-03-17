@@ -9,7 +9,7 @@ interface serviceItems {
   id?: string;
   title?: string;
   paid?: string;
-  body?: string;
+  bodyHtml?: string;
   serviceName: string;
   managementName: string;
   privacyUrl: string;

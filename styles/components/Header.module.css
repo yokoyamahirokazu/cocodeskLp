@@ -60,6 +60,7 @@ nav.header_nav ul li a {
   position: relative;
   padding: 10px 12px;
   border-radius: 4px;
+  font-weight: bold;
 }
 nav.header_nav ul li a:hover {
   background-color: var(--primary-10);

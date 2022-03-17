@@ -7,7 +7,7 @@ export const About: React.FC = () => {
       <div className={styles.section_inner}>
         <h2>CocoDesk オンライン相談サービスとは？</h2>
         <p className={styles.about_lead}>
-          駅ナカや商業施設で展開する「CocoDesk」というワークブースを活用し、遠隔地にいる専門家（サービス担当者）にオンラインで相談できるサービスです。
+          駅ナカや商業施設で展開する「CocoDesk」というワークブースを活用し、遠隔地にいる専門家（サービス担当者）にオンラインで相談または予約ができるサービスです。
           <br />
           通勤や通学、お買い物の際に、いつでも手軽に利用でき、予約での利用も可能です。
           <br />
@@ -45,7 +45,7 @@ export const About: React.FC = () => {
               <div className={styles.box_white_txt}>
                 <h3>オンラインで相談</h3>
                 <p>
-                  Cブース内で遠隔地にいる専門家（サービス担当者）にディスプレイ越しに相談できます。
+                  ブース内で遠隔地にいる専門家（サービス担当者）にディスプレイ越しに相談できます。
                 </p>
               </div>
             </div>

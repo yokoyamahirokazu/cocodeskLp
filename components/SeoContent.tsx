@@ -12,7 +12,7 @@ interface Props {
 const SeoContent = ({ pageTitle, pageDescription, pageUrl, ogpImg, noIndex }: Props) => {
   const defaultTitle = 'CocoDeskオンライン相談サービス';
   const defaultDescription =
-    '駅ナカや商業施設で展開する「CocoDesk」というワークブースを活用し、遠隔地にいる専門家（サービス担当者）にオンラインで相談できるサービスです。通勤や通学、お買い物の際に、いつでも手軽に利用でき、予約での利用も可能です。また、さまざまな事業者のサービスを1つのブースで利用できるのも特徴です。';
+    'CocoDeskオンライン相談サービスでは、不動産賃貸相談や占い、保険の相談などをブースの中で受けていただくことができます。予約利用だけでなくふらっと立ち寄ることもできます。';
   const defaultPageUrl = config.baseUrl;
   const defaultOgpImg = `${config.baseUrl}/images/og_image.png`;
 

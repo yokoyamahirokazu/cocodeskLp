@@ -7,7 +7,7 @@ interface Article {
   id?: string;
   title?: string;
   paid?: string;
-  body?: string;
+  bodyHtml?: string;
   serviceName: string;
   managementName: string;
   privacyUrl: string;
@@ -41,7 +41,7 @@ export const Service: React.FC<ServiceProps> = (props) => {
                       {service.title}
                     </h3>
                     <div className={styles.box_white_txt}>
-                      <p>{service.body}</p>
+                      <div dangerouslySetInnerHTML={{ __html: service.bodyHtml }} />
                       <div className={styles.logo_wrapper}>
                         <div className={styles.logo_box_wrapper}>
                           <h4 className={styles.headline_line}>

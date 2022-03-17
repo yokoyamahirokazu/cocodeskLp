@@ -66,7 +66,7 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link href="https://www.lss-box-reservation.com/home">
+                <Link href="https://www.lss-box-reservation.com/home?PLM=104">
                   <a>予約サイト</a>
                 </Link>
               </li>

@@ -40,7 +40,11 @@ export const Hero: React.FC = () => {
             「CocoDeskオンライン相談サービス」
           </h1>
 
-          <Button color="primary" size="default" linkTo="https://www.lss-box-reservation.com/home">
+          <Button
+            color="primary"
+            size="default"
+            linkTo="https://www.lss-box-reservation.com/home?PLM=104"
+          >
             ご予約はこちら
           </Button>
           <Button fill="outline" color="primary" size="default" linkTo="/contact" as="/contact">

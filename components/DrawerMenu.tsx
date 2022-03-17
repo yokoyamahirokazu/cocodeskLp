@@ -79,7 +79,7 @@ const DrawerMenu = () => {
                   color="primary"
                   size="default"
                   types="link"
-                  linkTo="https://www.lss-box-reservation.com/home"
+                  linkTo="https://www.lss-box-reservation.com/home?PLM=104"
                 >
                   ご予約はこちら
                 </Button>

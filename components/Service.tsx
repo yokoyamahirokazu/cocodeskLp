@@ -58,7 +58,15 @@ export const Service: React.FC<ServiceProps> = (props) => {
                                 />
                               )}
                             </div>
-                            <p>{service.serviceName && service.serviceName}</p>
+                            <p>
+                              {service.serviceName && service.serviceName}
+                              {service.id === 'fwxrfuva6' && (
+                                <>
+                                  <br />
+                                  弁護士法人Adire法律事務所（第一東京弁護士会所属）
+                                </>
+                              )}
+                            </p>
                           </div>
                         </div>
                         {service.managementName && (

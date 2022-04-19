@@ -86,6 +86,23 @@
   font-weight: bold;
 }
 
+.rule ul {
+  font-size: 1.6rem;
+}
+.rule ul li {
+  line-height: 1.6;
+  list-style-type: disc;
+  margin-left: 24px;
+  text-align: left;
+}
+.rule ul.decimal li {
+  list-style-type: decimal;
+}
+.rule h1 {
+  line-height: 1.5;
+  margin: 32px 0 16px;
+}
+
 @media screen and (max-width: 767px) {
   .companyTimeleapLogo {
     height: 100px;

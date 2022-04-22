@@ -67,9 +67,13 @@ const DrawerMenu = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/privacy-policy" as="/privacy-policy">
-                  <a onClick={toggleDrawer}>プライバシーポリシー</a>
-                </Link>
+                <a
+                  onClick={toggleDrawer}
+                  href="https://timeleap.co.jp/privacy-policy.html"
+                  target="_blank"
+                >
+                  プライバシーポリシー
+                </a>
               </li>
             </ul>
 

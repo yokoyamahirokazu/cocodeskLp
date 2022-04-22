@@ -61,9 +61,9 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/privacy-policy" as="/privacy-policy">
-                  <a>プライバシーポリシー</a>
-                </Link>
+                <a href="https://timeleap.co.jp/privacy-policy.html" target="_blank">
+                  プライバシーポリシー
+                </a>
               </li>
               <li>
                 <Link href="https://www.lss-box-reservation.com/home?PLM=104">

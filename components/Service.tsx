@@ -105,7 +105,22 @@ export const Service: React.FC<ServiceProps> = (props) => {
               );
             })}
           </div>
-          <div className={styles.btn_wrapper}>
+          <div className={styles.box_border}>
+            <h3>各サービスの営業時間について</h3>
+            <p>
+              各サービスの営業時間は、ご利用いただくブース、曜日によって異なります。
+              <br />
+              詳しくは下記「各サービスの営業時間はこちら」よりご確認ください。
+            </p>
+            <Button
+              color="primary"
+              size="default"
+              linkTo="https://www.lss-box-reservation.com/service-guide"
+            >
+              各サービスの営業時間はこちら
+            </Button>
+          </div>
+          {/* <div className={styles.btn_wrapper}>
             <p>サービスについて、詳しくは予約サイトをご覧ください</p>
             <Button
               color="primary"
@@ -114,7 +129,7 @@ export const Service: React.FC<ServiceProps> = (props) => {
             >
               サービスを詳しく見る
             </Button>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

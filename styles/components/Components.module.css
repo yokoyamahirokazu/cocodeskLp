@@ -82,6 +82,18 @@ p.small {
   padding: 24px;
 }
 
+.box_border {
+  border: solid 2px var(--primary);
+  border-radius: 6px;
+  padding: 24px;
+  text-align: center;
+  color: var(--primary);
+}
+
+.box_border a {
+  margin: 16px 0 0 0;
+}
+
 .img_box_A {
   position: relative;
   width: 100%;
@@ -182,6 +194,10 @@ ul.vertical li {
 
   ul.vertical li {
     margin: 0 0 16px 0;
+  }
+
+  .box_border p {
+    text-align: left;
   }
 }
 

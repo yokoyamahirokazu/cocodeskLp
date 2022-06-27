@@ -10,6 +10,7 @@ const EntryIndex: NextPage = () => {
       <SeoContent
         pageTitle="CocoDeskオンラインサービス キャンペーン"
         pageDescription="CocoDeskオンラインサービス キャンペーンのページです。"
+        noIndex="noindex"
       />
       <div className={styles.companyContent}>
         <div className={styles.companyArticle}>

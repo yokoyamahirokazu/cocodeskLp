@@ -17,6 +17,7 @@ const PrivacyPolicyAdire: NextPage = () => {
       <SeoContent
         pageTitle="プライバシーポリシー"
         pageDescription="プライバシーポリシーページです。"
+        noIndex="noindex"
       />
 
       <div className={styles.companyContent}>

@@ -22,7 +22,9 @@ const EntryIndex: NextPage = () => {
                 以下のメールアドレスをクリックいただき、CocoDesk無償利用申請をお願いします。先着100名の方にCocoDeskの利用が1時間無料になります。
               </p>
               <p>
-                <a href="mailto:dge-fb-oss-enq@fujifilm.com">dge-fb-oss-enq@fujifilm.com</a>
+                <a href="mailto:dge-fb-oss-enq@fujifilm.com?subject=件名">
+                  dge-fb-oss-enq@fujifilm.com
+                </a>
               </p>
               <h2>エントリー対象予約期間</h2>
               <p>2022年7月1日（金）～2022年7月31日（日）</p>

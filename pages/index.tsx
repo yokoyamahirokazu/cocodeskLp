@@ -39,6 +39,32 @@ const Index: NextPage<IndexProps> = (props) => {
     <>
       <SeoContent />
       <Hero />
+      <div
+        style={{
+          boxSizing: 'content-box',
+          margin: '32px auto',
+          padding: '0 4vw',
+          textAlign: 'center',
+        }}
+      >
+        <p
+          style={{
+            fontWeight: 'bold',
+            fontSize: '16px',
+            color: '#00859b',
+            textAlign: 'left',
+            display: 'inline-block',
+            margin: '0 auto',
+            border: 'solid 2px #00859b',
+            padding: '16px 20px',
+            borderRadius: '4px',
+          }}
+        >
+          CocoDeskオンライン相談サービスの実証実験は7月末をもって終了とさせて頂きます。
+          <br />
+          ご利用有り難うございました。
+        </p>
+      </div>
       <About />
       <Features />
       <ContactSection />
